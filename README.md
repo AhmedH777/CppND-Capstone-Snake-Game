@@ -8,6 +8,14 @@ The Capstone Project gives you a chance to integrate what you've learned through
 
 In this project, you can build your own C++ application or extend this Snake game, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
 
+## Project AddOn
+In this project I added a food class to the project which handle special types of food which give different scores based on the type:
+
+Normal Food      : Yellow color : 1 score point
+Booster Food     : BLue color   : 2 score points
+MegaBooster Food : REd color    : 3 score points
+
+
 ## Dependencies for Running Locally
 * cmake >= 3.7
   * All OSes: [click here for installation instructions](https://cmake.org/install/)
@@ -29,6 +37,16 @@ In this project, you can build your own C++ application or extend this Snake gam
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./SnakeGame`.
+
+## Project Rubric points addressed
+
+1. The project demonstrates an understanding of C++ functions and control structures. [food.cpp]
+2. The project uses Object Oriented Programming techniques.                           [Food class in food.cpp and food.hpp]
+3. Classes use appropriate access specifiers for class members.                       [Food class in food.cpp and food.hpp]
+4. Classes abstract implementation details from their interfaces.                     [Food class in food.cpp and food.hpp]
+5. Classes encapsulate behavior.                                                      [Food class in food.cpp and food.hpp]
+6. The project makes use of references in function declarations.                      [void Food::placeFood(Snake &snake)]
+7. The project follows the Rule of 5.                                                 [Food class in food.cpp and food.hpp]
 
 
 ## CC Attribution-ShareAlike 4.0 International
