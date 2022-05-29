@@ -38,7 +38,7 @@ Renderer::~Renderer() {
   SDL_Quit();
 }
 
-void Renderer::Render(Snake const &snake, Food &foodObj) {
+void Renderer::Render(Snake const &snake,SnakeAI const &snakeAI, Food &foodObj) {
   SDL_Rect block;
   SDL_Point food = foodObj.getFoodPos();
   block.w = screen_width / grid_width;
@@ -87,6 +87,28 @@ void Renderer::Render(Snake const &snake, Food &foodObj) {
   }
   SDL_RenderFillRect(sdl_renderer, &block);
 
+
+  // ########################## Render snakeAI ###########################
+  // Render snakeAI body
+  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+  for (SDL_Point const &point : snakeAI.body) {
+    block.x = point.x * block.w;
+    block.y = point.y * block.h;
+    SDL_RenderFillRect(sdl_renderer, &block);
+  }
+
+  // Render snakeAI head
+  block.x = static_cast<int>(snakeAI.head_x) * block.w;
+  block.y = static_cast<int>(snakeAI.head_y) * block.h;
+
+  if (snakeAI.alive) {
+     SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
+   } else {
+     SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+   }
+  SDL_RenderFillRect(sdl_renderer, &block);
+
+  // ######################################################################
   // Update Screen
   SDL_RenderPresent(sdl_renderer);
 }

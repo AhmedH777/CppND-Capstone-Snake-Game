@@ -18,6 +18,7 @@ Booster Food     : BLue color   : 2 score points.
 MegaBooster Food : REd color    : 3 score points.
 
 
+I also added an AI snake that compete with the Human playing, so try to beat it ;).
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -43,19 +44,24 @@ MegaBooster Food : REd color    : 3 score points.
 
 ## Project Rubric points addressed
 
-1. The project demonstrates an understanding of C++ functions and control structures. [food.cpp].
+1. The project demonstrates an understanding of C++ functions and control structures.  [food.cpp].
 
-2. The project uses Object Oriented Programming techniques.                           [Food class in food.cpp and food.hpp].
+2. The project uses Object Oriented Programming techniques.                            [Food class in food.cpp and food.hpp].
 
-3. Classes use appropriate access specifiers for class members.                       [Food class in food.cpp and food.hpp].
+3. Classes use appropriate access specifiers for class members.                        [Food class in food.cpp and food.hpp].
 
-4. Classes abstract implementation details from their interfaces.                     [Food class in food.cpp and food.hpp].
+4. Classes abstract implementation details from their interfaces.                      [Food class in food.cpp and food.hpp].
 
-5. Classes encapsulate behavior.                                                      [Food class in food.cpp and food.hpp].
+5. Classes encapsulate behavior.                                                       [Food class in food.cpp and food.hpp].
 
-6. The project makes use of references in function declarations.                      [void Food::placeFood(Snake &snake)].
+6. The project makes use of references in function declarations.                       [void Food::placeFood(Snake &snake)].
 
-7. The project follows the Rule of 5.                                                 [Food class in food.cpp and food.hpp].
+7. The project follows the Rule of 5.                                                  [Food class in food.cpp and food.hpp].
+
+8. The project uses move semantics to move data, instead of copying it, where possible.[std::vector<Point> Directions {std::move(headUp),std::move(headDown),std::move(headLeft),std::move(headRight)};]
+
+9. Classes follow an appropriate inheritance hierarchy.                                [SnakeAI class]
+
 
 ## CC Attribution-ShareAlike 4.0 International
 

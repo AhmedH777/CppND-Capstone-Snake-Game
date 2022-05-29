@@ -88,7 +88,7 @@ void Food::placeFood(Snake &snake)
     std::uniform_int_distribution<int> dist((int)Normal, (int)MegaBooster);
     _foodType = (foodType)dist(gen);
 
-    std::cout<<"Food Type : "<<_foodType<<std::endl;
+    //std::cout<<"Food Type : "<<_foodType<<std::endl;
 
 	// Get Radom Food Pos
 	while (true)
@@ -97,7 +97,7 @@ void Food::placeFood(Snake &snake)
 		y = _random_h(_engine);
 		// Check that the location is not occupied by a snake item before placing
 		// food.
-		std::cout<<"Food PosX = "<<x<<" PosY = "<<y<<std::endl;
+		//std::cout<<"Food PosX = "<<x<<" PosY = "<<y<<std::endl;
 
 		if (!snake.SnakeCell(x, y))
 		{

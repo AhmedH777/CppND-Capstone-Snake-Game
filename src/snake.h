@@ -28,7 +28,7 @@ class Snake {
   float head_y;
   std::vector<SDL_Point> body;
 
- private:
+ protected:
   void UpdateHead();
   void UpdateBody(SDL_Point &current_cell, SDL_Point &prev_cell);
 
@@ -37,4 +37,21 @@ class Snake {
   int grid_height;
 };
 
+class SnakeAI : public Snake {
+
+public:
+	struct Point
+	{
+		float x;
+		float y;
+	};
+
+	SnakeAI(int grid_width, int grid_height);
+	~SnakeAI();
+	void UpdateAI(SDL_Point &foodPos);
+private:
+	void UpdateDirection(SDL_Point &foodPos);
+	std::vector<int> dirHist;
+	bool toogle;
+};
 #endif
