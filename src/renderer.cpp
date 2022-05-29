@@ -38,8 +38,9 @@ Renderer::~Renderer() {
   SDL_Quit();
 }
 
-void Renderer::Render(Snake const snake, SDL_Point const &food) {
+void Renderer::Render(Snake const &snake, Food &foodObj) {
   SDL_Rect block;
+  SDL_Point food = foodObj.getFoodPos();
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
 
@@ -48,7 +49,22 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
   SDL_RenderClear(sdl_renderer);
 
   // Render food
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
+  switch(foodObj.getFoodTyp())
+  {
+	  case Food::foodType::Normal :
+		  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
+		  break;
+	  case Food::foodType::Booster:
+		  SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x00, 0xFF, 0xFF);
+		  break;
+	  case Food::foodType::MegaBooster:
+		  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+		  break;
+	  default:
+		  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
+		  break;
+  }
+
   block.x = food.x * block.w;
   block.y = food.y * block.h;
   SDL_RenderFillRect(sdl_renderer, &block);
